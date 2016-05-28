@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
 # Tayfun ULU
+# extra info : https://github.com/tayfunulu/DovizKurlari
+
 import xml.etree.ElementTree as ET
 import sys
 if sys.version_info.major >2 :
