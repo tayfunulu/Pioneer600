@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
+# Tayfun ULU
 import RPi.GPIO as GPIO
 import smbus
 import spidev as SPI
@@ -161,7 +162,7 @@ def menu ():
 			if GPIO.input(KEY) == 0:
 				os.popen('sudo pkill kodi')
 
-	#aç kapa
+	#aÃ§ kapa
 	elif ana_menu == 7 :
 
 		if son_menu == 7:
@@ -201,7 +202,7 @@ def menu ():
 				note = note.read()
 				if note.find("Your firmware is already up to date") != -1 :
 					oled("< 7. System >","Up to date")
-					#print ("Güncel")
+					#print ("GÃ¼ncel")
 					time.sleep(1)
 				else :
 					oled("< 7. System >","Done")
