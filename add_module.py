@@ -9,31 +9,12 @@ import urllib2
 import xml.etree.ElementTree as ET
 import urllib2
 
-def kurnedir(sor):
-	kurlar = {}
-	tree = ET.parse(urllib2.urlopen('http://www.tcmb.gov.tr/kurlar/today.xml'))
-	root = tree.getroot()
-
-	for kurlars in root.findall('Currency'):
-		Kod = kurlars.get('Kod')
-		Unit = kurlars.find('Unit').text #    <Unit>1</Unit>
-		isim = kurlars.find('Isim').text #    <Isim>ABD DOLARI</Isim>
-    		CurrencyName = kurlars.find('CurrencyName').text #    <CurrencyName>US DOLLAR</CurrencyName>
-    		ForexBuying = kurlars.find('ForexBuying').text #    <ForexBuying>2.9587</ForexBuying>
-    		ForexSelling = kurlars.find('ForexSelling').text #    <ForexSelling>2.964</ForexSelling>
-    		BanknoteBuying = kurlars.find('BanknoteBuying').text #    <BanknoteBuying>2.9566</BanknoteBuying>
-    		BanknoteSelling = kurlars.find('BanknoteSelling').text #    <BanknoteSelling>2.9684</BanknoteSelling>
-		CrossRateUSD = kurlars.find('CrossRateUSD').text #    <CrossRateUSD>1</CrossRateUSD>
-		kurlar [Kod] = ForexBuying
-
-	return kurlar[sor]
-
 def get_ip_address(ifname):
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 	try :
 		ipnedir = socket.inet_ntoa(fcntl.ioctl(s.fileno(),0x8915,struct.pack('256s', ifname[:15]))[20:24])
 	except:
-		ipnedir ="IP YOK"
+		ipnedir ="NO IP"
 	return ipnedir
 
 # Return CPU temperature as a character string

@@ -97,7 +97,7 @@ def menu ():
 			son_menu =3
 
 		if son_menu ==1:
-			oled("< 2.Info >","Temperature",round(temp,2))
+			oled("< 2.Info >","Temperature",(str(round(temp,2))+" C"))
 		elif son_menu ==2:
 			oled("< 2.Info >","Pressure",round(pressure,2))
 		elif son_menu ==3:
@@ -112,13 +112,13 @@ def menu ():
 			son_menu =4
 
 		if son_menu == 1 :
-			oled("< 3.Rpi Info >","CPU Temperature=",add_module.getCPUtemperature())
+			oled("< 3.Rpi Info >","CPU Temperature=",(add_module.getCPUtemperature()+" C"))
 		elif son_menu == 2 :
-			oled("< 3.Rpi Info >","RAM ",add_module.getDiskSpace()[3])
+			oled("< 3.Rpi Info >","Free RAM",(str(int(add_module.getRAMinfo()[2])/1024)+" MB"))
 		elif son_menu == 3 :
-			oled("< 3.Rpi Info >","CPU %",add_module.getCPUuse())
+			oled("< 3.Rpi Info >","CPU Usage",(add_module.getCPUuse()+" %"))
 		elif son_menu == 4 :
-			oled("< 3.Rpi Info >","Disk %",add_module.getDiskSpace()[3])
+			oled("< 3.Rpi Info >","Disk Usage",add_module.getDiskSpace()[3])
 	# ipler
 	elif ana_menu == 4 :
 
