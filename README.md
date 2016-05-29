@@ -2,6 +2,8 @@
 
 Pioneer600 sample program to control Raspberry pi with Joystick and monitor status on OLED of Pioneer600. 
 
+Video Sample : https://youtu.be/f1ea1XTvkac 
+
 Monitoring : 
 
   * Time / Date 
