@@ -1,5 +1,6 @@
 # Pioneer600
-Pioneer600 sample
+
+Pioneer600 sample program to control Raspberry pi with Joystick and monitor status on OLED of Pioneer600. 
 
 ---------------
 
