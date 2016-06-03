@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 # Tayfun ULU
 # 2016
+
 import RPi.GPIO as GPIO
 import smbus
 import spidev as SPI
@@ -232,8 +233,8 @@ disp.clear()
 disp.display()
 
 # Load image based on OLED display height.  Note that image is converted to 1 bit color.
-imageOpen = Image.open('pioneer600.bmp').convert('1')
-imageClose = Image.open('pioneer600_close.bmp').convert('1')
+imageOpen = Image.open(os.path.dirname(os.path.realpath(__file__)) +"/pioneer600.bmp").convert('1')
+imageClose = Image.open(os.path.dirname(os.path.realpath(__file__)) +"/pioneer600_close.bmp").convert('1')
 
 # Alternatively load a different format image, resize it, and convert to 1 bit color.
 #image = Image.open('happycat.png').resize((disp.width, disp.height), Image.ANTIALIAS).convert('1')
