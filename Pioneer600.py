@@ -231,6 +231,17 @@ disp.begin()
 disp.clear()
 disp.display()
 
+# Load image based on OLED display height.  Note that image is converted to 1 bit color.
+image = Image.open('pioneer600.bmp').convert('1')
+
+# Alternatively load a different format image, resize it, and convert to 1 bit color.
+#image = Image.open('happycat.png').resize((disp.width, disp.height), Image.ANTIALIAS).convert('1')
+
+# Display image.
+disp.image(image)
+disp.display()
+time.sleep(2)
+
 # Create blank image for drawing.
 # Make sure to create image with mode '1' for 1-bit color.
 width = disp.width
