@@ -232,14 +232,16 @@ disp.clear()
 disp.display()
 
 # Load image based on OLED display height.  Note that image is converted to 1 bit color.
-image = Image.open('pioneer600.bmp').convert('1')
+imageOpen = Image.open('pioneer600.bmp').convert('1')
+imageClose = Image.open('pioneer600_close.bmp').convert('1')
 
 # Alternatively load a different format image, resize it, and convert to 1 bit color.
 #image = Image.open('happycat.png').resize((disp.width, disp.height), Image.ANTIALIAS).convert('1')
 
 # Display image.
-disp.image(image)
+disp.image(imageOpen)
 disp.display()
+
 time.sleep(2)
 
 # Create blank image for drawing.
@@ -273,26 +275,49 @@ bmp = BMP180()
 bus = smbus.SMBus(1)
 
 print("Pioneer600 Test Program !!!")
-while True:
-	bus.write_byte(address,0x0F|bus.read_byte(address))
-	value = bus.read_byte(address) | 0xF0
-	if value != 0xFF:
-		led_on()
-		if (value | 0xFE) != 0xFF:
-			deger="left"
-		elif (value | 0xFD) != 0xFF:
-			deger="up"
-		elif (value | 0xFB) != 0xFF:
-			deger="down"
-		else :
-			deger="right"
-		while value != 0xFF:
-			bus.write_byte(address,0x0F|bus.read_byte(address))
-			value = bus.read_byte(address) | 0xF0
-			time.sleep(0.01)
-		led_off()
+
+try:
+	while True:
+
+		bus.write_byte(address,0x0F|bus.read_byte(address))
+		value = bus.read_byte(address) | 0xF0
+		if value != 0xFF:
+			led_on()
+			if (value | 0xFE) != 0xFF:
+				deger="left"
+			elif (value | 0xFD) != 0xFF:
+				deger="up"
+			elif (value | 0xFB) != 0xFF:
+				deger="down"
+			else :
+				deger="right"
+			while value != 0xFF:
+				bus.write_byte(address,0x0F|bus.read_byte(address))
+				value = bus.read_byte(address) | 0xF0
+				time.sleep(0.01)
+			led_off()
+			son_menu=menu()
+
+		time.sleep(0.1)
+		deger="YOK"
 		son_menu=menu()
 
-	time.sleep(0.1)
-	deger="YOK"
-	son_menu=menu()
+except (KeyboardInterrupt, SystemExit):
+	print ("Keyboard Interrupt")
+	# Clear display.
+	disp.image(imageClose)
+	disp.display()
+
+	time.sleep(2)
+	disp.clear()
+	disp.display()
+
+except:
+	print ("ERROR")
+	# Clear display.
+	disp.image(imageClose)
+	disp.display()
+
+	time.sleep(2)
+	disp.clear()
+	disp.display()
