@@ -303,6 +303,7 @@ try:
 		deger="YOK"
 		son_menu=menu()
 
+# for keyboard interrupt
 except (KeyboardInterrupt, SystemExit):
 	print ("Keyboard Interrupt")
 	# Clear display.
