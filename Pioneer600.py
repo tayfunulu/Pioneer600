@@ -118,7 +118,7 @@ def menu ():
 		elif son_menu == 2 :
 			oled("< 3.Rpi Info >","Free RAM",(str(int(add_module.getRAMinfo()[2])/1024)+" MB"))
 		elif son_menu == 3 :
-			oled("< 3.Rpi Info >","CPU Usage",(add_module.getCPUuse()+" %"))
+			oled("< 3.Rpi Info >","CPU Usage",(str(add_module.getCPUuse())+" %"))
 		elif son_menu == 4 :
 			oled("< 3.Rpi Info >","Disk Usage",add_module.getDiskSpace()[3])
 	# ipler
