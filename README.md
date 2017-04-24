@@ -35,9 +35,9 @@ and add this line, change directore if you install differant location.
 
 <i>sudo python /home/pi/Pioneer600/Pioneer600.py &</i>
 
-
-
 ---------------
+
+
 
 <b>Module </b>: Pioneer600
 http://www.waveshare.com/wiki/Pioneer600
@@ -57,6 +57,36 @@ http://www.waveshare.com/wiki/Pioneer600
   
 ----------------
 
+<b>Details Installation:</b>
+ 
+Fistly installing packaged which needed.
 
+<i>
+sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
 
+sudo pip install Image
+</i>
 
+And you have to enable spi, i2c, 1-Wire. There are two way, in terminal or application in desktop mode.
+ 
+In terminal screen
+
+<i>sudo raspi-config</i>
+ 
+Under Advanced Option -> Enable SPI, I2C, 1-Wire
+ 
+And restart….
+ 
+to donwload codes from github 
+
+git clone https://github.com/tayfunulu/Pioneer600.git
+ 
+cd Pioneer600
+ 
+To try
+ 
+sudo python Pioneer600.py
+ 
+to install kodi :
+
+Sudo apt-get install kodi 
